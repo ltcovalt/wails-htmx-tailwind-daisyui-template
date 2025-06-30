@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>rest-client</title>
+	<link rel="stylesheet" href="./src/styles.css">
+	<script src="https://unpkg.com/htmx.org@2.0.4"
+		integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+		crossorigin="anonymous"></script>
+</head>
+
+<body class="p-4">
+	<!-- HTMX can be used to load dynamic content and for interactivity -->
+	<div class="flex flex-row">
+		<div class="flex-1"></div>
+		<div hx-get="/hx/header" hx-trigger="load" class="flex-4"></div>
+		<div hx-get="/hx/theme-controller" hx-trigger="load" class="flex-1"></div>
+	</div>
+
+	<img src="src/assets/images/logo-universal.png" width="45%" class="mx-auto">
+
+	<!-- WAILS JS/Go method bindings can also be used for dynamic content -->
+	<script src="./src/main.js" type="module"></script>
+	<div class="text-center align-middle mt-8">
+		<div class="result mb-2" id="result">Please enter your name below 👇</div>
+		<div class="join" id="input">
+			<input class="input join-item focus:outline-none focus:ring-0" id="name" type="text" autocomplete="off" />
+			<button class="btn btn-success join-item rounded-r-lg" onclick="greet()">Greet</button>
+		</div>
+	</div>
+
+	<!-- related documentation hyperlinks -->
+	<div class="mt-16 prose mx-auto absolute bottom-8 left-0 right-0 text-center">
+		<div class="text">This template uses the following libraries:</div>
+		<div class="text-sm">
+			<a class="link-primary link-hover" href="https://htmx.org/" target="_blank">HTMX</a> for interactivity,
+			<a class="link-primary link-hover" href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> for styling,
+			<a class="link-primary link-hover" href="https://daisyui.com/" target="_blank">daisyUI</a> for CSS components,
+			<br><a class="link-primary link-hover" href="https://pkg.go.dev/std" target="_blank">Golang standard library</a> for routing and HTML templating,
+			<br>and <a class="link-error link-hover" href="https://wails.io/" target="_blank">WAILS</a> to make it all possible!
+		</div>
+	</div>
+
+</body>
+
+</html>

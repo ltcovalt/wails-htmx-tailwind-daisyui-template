@@ -1,0 +1,18 @@
+{
+	"type": "module",
+	"name": "{{.ProjectName}}",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"vite": "^6.3"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.10",
+		"tailwindcss": "^4.1.10"
+	}
+,"author":"{{.AuthorName}}"}

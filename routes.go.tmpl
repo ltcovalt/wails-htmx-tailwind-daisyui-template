@@ -1,0 +1,12 @@
+package main
+
+import (
+	"net/http"
+	"{{.ProjectName}}/handlers"
+)
+
+func getRoutes(mux *http.ServeMux) *http.ServeMux {
+	mux.HandleFunc("GET /hx/header", handlers.Hx.Header)
+	mux.HandleFunc("GET /hx/theme-controller", handlers.Hx.ThemeController)
+	return mux
+}
