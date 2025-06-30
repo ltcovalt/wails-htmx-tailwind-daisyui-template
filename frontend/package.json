@@ -1,0 +1,18 @@
+{
+	"name": "frontend",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"vite": "^6.0.7",
+		"tailwindcss": "^4.1.10",
+		"@tailwindcss/vite": "^4.1.10",
+		"@tailwindcss/typography": "^0.5.16",
+		"daisyui": "^5.0.43"
+	}
+}
