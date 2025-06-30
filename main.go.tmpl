@@ -16,6 +16,9 @@ import (
 //go:embed all:frontend/dist
 var assets embed.FS
 
+//go:embed templates/*
+var TemplateFS embed.FS
+
 //go:embed build/appicon.png
 var icon []byte
 
@@ -40,7 +43,7 @@ func main() {
 		BackgroundColour:  &options.RGBA{R: 255, G: 255, B: 255, A: 255},
 		AssetServer: &assetserver.Options{
 			Assets:     assets,
-			Middleware: middleware,
+			Middleware: routerMiddleware,
 		},
 		Menu:             nil,
 		Logger:           nil,
@@ -91,11 +94,19 @@ func main() {
 // Defines a middleware function that allows HTTP requests to be sent to a custom handler,
 // rather than using Wails default asset handler, which is needed to use HTMX. If the mux
 // does not define a route, then the Wails default handler (next) will be used.
-func middleware(next http.Handler) http.Handler {
-	mux := http.NewServeMux()
-	// not found handler - use the next (Wails Default) handler
-	mux.Handle("GET /", next)
-	// get routes that that override wails default handler
-	mux = getRoutes(mux)
-	return mux
+func routerMiddleware(next http.Handler) http.Handler {
+	mux := newRouter()
+
+	// Return handler that tries mux, then falls back to Wails asset server
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Try the custom mux
+		handler, pattern := mux.Handler(r)
+		if pattern != "" {
+			handler.ServeHTTP(w, r)
+			return
+		}
+
+		// Fall back to Wails' default handler
+		next.ServeHTTP(w, r)
+	})
 }

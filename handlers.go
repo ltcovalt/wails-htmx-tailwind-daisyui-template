@@ -1,4 +1,4 @@
-package handlers
+package main
 
 import (
 	"html/template"
@@ -10,7 +10,7 @@ type hx struct{}
 var Hx hx
 
 func (hx) Header(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./templates/Header.html")
+	t, err := template.ParseFS(TemplateFS, "templates/Header.html")
 	if err != nil {
 		return
 	}
@@ -20,7 +20,7 @@ func (hx) Header(w http.ResponseWriter, r *http.Request) {
 }
 
 func (hx) ThemeController(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./templates/ThemeController.html")
+	t, err := template.ParseFS(TemplateFS, "templates/ThemeController.html")
 	if err != nil {
 		return
 	}
