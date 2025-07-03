@@ -11,15 +11,16 @@
 		crossorigin="anonymous"></script>
 </head>
 
-<body class="p-4">
-	<!-- HTMX can be used to load dynamic content and for interactivity -->
+<body class="min-h-screen flex flex-col p-4">
+
+	<!-- HTMX can be used to load dynamic content and for interactivity, like here in the header -->
 	<div class="flex flex-row">
 		<div class="flex-1"></div>
 		<div hx-get="/hx/header" hx-trigger="load" class="flex-4"></div>
 		<div hx-get="/hx/theme-controller" hx-trigger="load" class="flex-1"></div>
 	</div>
 
-	<img src="src/assets/images/logo-universal.png" width="45%" class="mx-auto">
+	<img src="src/assets/images/logo-universal.png" class="mx-auto w-1/2 sm:w-1/3 md:w-1/3" alt="WAILS app logo">
 
 	<!-- WAILS JS/Go method bindings can also be used for dynamic content -->
 	<script src="./src/main.js" type="module"></script>
@@ -32,13 +33,13 @@
 	</div>
 
 	<!-- related documentation hyperlinks -->
-	<div class="mt-16 prose mx-auto absolute bottom-8 left-0 right-0 text-center">
-		<div class="text">This template uses the following libraries:</div>
+	<div class="mt-auto pt-4 prose mx-auto text-center">
+		<div>This template uses the following libraries:</div>
 		<div class="text-sm">
 			<a class="link-primary link-hover" href="https://htmx.org/" target="_blank">HTMX</a> for interactivity,
 			<a class="link-primary link-hover" href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> for styling,
-			<a class="link-primary link-hover" href="https://daisyui.com/" target="_blank">daisyUI</a> for CSS components,
-			<br><a class="link-primary link-hover" href="https://pkg.go.dev/std" target="_blank">Golang standard library</a> for routing and HTML templating,
+			<a class="link-primary link-hover" href="https://daisyui.com/" target="_blank">daisyUI</a> for components,
+			<br><a class="link-primary link-hover" href="https://pkg.go.dev/std" target="_blank">Go standard library</a> for templating,
 			<br>and <a class="link-error link-hover" href="https://wails.io/" target="_blank">WAILS</a> to make it all possible!
 		</div>
 	</div>
