@@ -2,6 +2,6 @@
   "name": "wails-htmx-tailwind-daisyui-template",
   "shortname": "wails-htmx-tailwind-daisyui-template",
   "author": "ltcovalt",
-  "description": "This template uses HTMX for interactivity, Tailwind CS for styling, daisyUI for CSS components, and the Golang standard library for routing and HMTL templating.",
+  "description": "This template uses HTMX for interactivity, Tailwind CSS for styling, daisyUI for CSS components, and the Golang standard library for routing and HTML templating.",
   "helpurl": "https://github.com/ltcovalt/wails-htmx-tailwind-daisyui-template"
 }
