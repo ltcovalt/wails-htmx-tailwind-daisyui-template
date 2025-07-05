@@ -1,4 +1,5 @@
 import {Greet} from '../wailsjs/go/main/App';
+import './styles.css';
 
 let nameElement = document.getElementById("name");
 nameElement.focus();
