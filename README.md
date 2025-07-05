@@ -2,7 +2,7 @@
 
 ## About
 
-This is [WAILS](https://wails.io) project template that uses HTMX for interactivity, Tailwind CS for styling, daisyUI for CSS components, and the Golang standard library for routing and HMTL templating. See the links below for official documentation on the libraries used.
+This is a [WAILS](https://wails.io) project template that uses HTMX for interactivity, Tailwind CS for styling, daisyUI for CSS components, and the Golang standard library for routing and HMTL templating. See the links below for official documentation on the libraries used.
 
 - Interactivity: [HTMX](https://htmx.org)
 - CSS Styling: [Tailwind CSS](https://tailwindcss.com/)
